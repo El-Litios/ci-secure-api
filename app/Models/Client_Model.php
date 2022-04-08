@@ -14,7 +14,7 @@ class Client_Model extends Model
 
     public function findClientById($id)
     {
-        $client = $this->asArray()->Where(['id' => $id])->first();
+        $client = $this->asArray()->Where('id', $id)->first();
 
         if(!$client){
             throw new \Exception('Client does not exist for specific id');
