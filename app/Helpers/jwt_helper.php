@@ -2,7 +2,9 @@
 
 use Config\Services;
 use Firebase\JWT\JWT;
-use App\Models\UserModel;
+use Firebase\JWT\Key;
+
+use App\Models\User_Model;
 
 function getJWTFromRequest($authHeader): string
 {
@@ -18,8 +20,8 @@ function getJWTFromRequest($authHeader): string
 function validateJWTFromRequest(string $tokenEncoded)
 {
     $key = \Config\Services::getSecretKey();
-    $decodedToken = \Firebase\JWT\JWT::decode($tokenEncoded, $key, ['HS256']);
-    $userModel = new \App\Models\User_Model();
+    $decodedToken = JWT::decode($tokenEncoded, new Key($key, 'HS256'));
+    $userModel = new User_Model();
     $userModel->findUserByEmail($decodedToken->email);
 }
 
