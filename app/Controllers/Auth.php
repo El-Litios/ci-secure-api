@@ -34,13 +34,14 @@ class Auth extends BaseController
             $userModel = model('User_Model');
             $user = $userModel->findUserByEmail($email); //verificar si el email corresponde a algun usuario dentro de la bd
             unset($user['password']); //sacamos la pass del arreglo
+            unset($user['created_at']); //sacamos la pass del arreglo
+            unset($user['updated_at']); //sacamos la pass del arreglo
 
             helper('jwt');
 
             return $this->getResponse([
-                'message' => 'Usuario authenticado!',
                 'user' => $user,
-                'access_token' => getSignedJWTForUser($email)
+                'access_token' => getSignedJWTForUser($email),
             ]);
         } catch (\Exception $e) {
             return  $this->getResponse([
@@ -68,6 +69,7 @@ class Auth extends BaseController
         if(!$this->validateRequest($input, $rules, $errors))
         {
             return $this->getResponse($this->validator->getErrors(), ResponseInterface::HTTP_BAD_REQUEST);
+            
         }
 
         return $this->getJWTForUser($input['email']);
