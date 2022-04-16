@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class User_Model extends Model
 {
     protected $table = 'user';
-    protected $allowedFields = ['name', 'email', 'password'];
+    protected $allowedFields = ['name', 'email', 'password', 'roleid'];
     protected $updatedField = 'updated_at';
     
     protected $beforeInsert = ['beforeInsert'];
