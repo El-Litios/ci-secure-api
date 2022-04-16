@@ -12,7 +12,8 @@ class Auth extends BaseController
         $rules = [
             'name' => 'required',
             'email' => 'required|valid_email|is_unique[user.email]',
-            'password' => 'required|min_length[8]|max_length[255]'
+            'password' => 'required|min_length[8]|max_length[255]',
+            'roleid' => 'required'
         ];
 
         $input = $this->getRequestInput($this->request);
