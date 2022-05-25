@@ -34,7 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 $routes->get('client', 'Client::index');
-$routes->post('client', 'Client::store');
+$routes->post('newclient', 'Client::store');
 $routes->get('client/(:num)', 'Client::show/$1');
 $routes->post('client/(:num)', 'Client::update/$1');
 $routes->delete('client/(:num)', 'Client::destroy/$1');

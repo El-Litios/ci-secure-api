@@ -46,7 +46,10 @@ class Auth extends BaseController
             ]);
         } catch (\Exception $e) {
             return  $this->getResponse([
-                'error' => $e->getMessage()
+                'error mensaje' => $e->getMessage(),
+                'codigo error' => $e->getCode(),
+                'linea' => $e->getLine(),
+                'archivo' => $e->getFile()
             ], $responseCode);
         }
     }
