@@ -35,9 +35,10 @@ $routes->get('/', 'Home::index');
 
 $routes->get('client', 'Client::index');
 $routes->post('newclient', 'Client::store');
-$routes->get('client/(:num)', 'Client::show/$1');
-$routes->post('client/(:num)', 'Client::update/$1');
-$routes->delete('client/(:num)', 'Client::destroy/$1');
+$routes->post('updateclient', 'Client::update');
+$routes->delete('deleteclient/(:num)', 'Client::destroy/$1');
+
+$routes->get('product', 'Product::index');
 
 /*
  * --------------------------------------------------------------------
