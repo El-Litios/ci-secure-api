@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 class Client_Model extends Model
 {
     protected $table = 'client';
-    protected $allowedFields = ['name', 'email', 'retainer_fee'];
+    protected $allowedFields = ['name', 'email', 'retainer_fee', 'updated_at'];
     protected $updatedField = 'updated_at';
     
     /* protected $beforeInsert = ['beforeInsert'];
