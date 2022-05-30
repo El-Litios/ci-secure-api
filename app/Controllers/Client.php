@@ -6,6 +6,7 @@ use Exception;
 use App\Models\Client_Model;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
+use \Datetime;
 
 class Client extends BaseController
 {
@@ -65,16 +66,15 @@ class Client extends BaseController
         }
     }
 
-    public function update($id)
+    public function update()
     {
         try {
-
+            $dt = new DateTime();
+            $input = $this->getRequestInput($this->request);
+            $id = $input['id'];
+            $input['updated_at'] = $dt->format('Y-m-d H:i:s');
             $model = new Client_Model();
             $model->findClientById($id);
-
-            $input = $this->getRequestInput($this->request);
-
-
             $model->update($id, $input);
             $client = $model->findClientById($id);
 
