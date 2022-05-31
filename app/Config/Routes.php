@@ -40,6 +40,8 @@ $routes->delete('deleteclient/(:num)', 'Client::destroy/$1');
 
 $routes->get('product', 'Product::index');
 
+$routes->get('category', 'CategoryProducts::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
