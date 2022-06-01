@@ -20,9 +20,9 @@ class ProductModel extends Model
         ->groupBy('product.name')
         ->findall();
 
-        if(!$product){
-            throw new \Exception('Error');
-        }
+/*         if(!$product){
+            throw new \Exception('No hay productos');
+        } */
 
         return $product;
     }
