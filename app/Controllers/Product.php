@@ -16,4 +16,19 @@ class Product extends BaseController
             'products' => $model->countProducts()
         ]);
     }
+
+    public function store()
+    {
+        $input = $this->getRequestInput($this->request);
+
+        $model = model('ProductModel');
+        
+        for ($i=0; $i < $input['quantity']; $i++) { 
+            $model->save($input);
+        }
+
+        return $this->getResponse([
+            'message' => 'Productos agregados'
+        ]);
+    }
 }
