@@ -39,6 +39,7 @@ $routes->post('updateclient', 'Client::update');
 $routes->delete('deleteclient/(:num)', 'Client::destroy/$1');
 
 $routes->get('product', 'Product::index');
+$routes->post('saveproducts', 'Product::store');
 
 $routes->get('category', 'CategoryProducts::index');
 
