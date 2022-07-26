@@ -73,7 +73,9 @@ class Filters extends BaseConfig
         'auth' => [
             'before' => [
                 'client/*',
-                'client'
+                'client',
+                'product',
+                'product/*'
             ]
         ]
     ];
