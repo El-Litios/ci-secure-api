@@ -12,7 +12,6 @@ class Product extends BaseController
     {
         $model = model('ProductModel');
         return $this->getResponse([
-            'message' => 'Prodcutos enviados satisfactoriamente',
             'products' => $model->countProducts()
         ]);
     }
