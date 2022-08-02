@@ -18,7 +18,6 @@ class ProductModel extends Model
         ->selectCount('product.name', 'stock')
         ->where('product.stateid = 2')
         ->groupBy('product.name')
-        ->asArray()
         ->findall();
 
 /*         if(!$product){
