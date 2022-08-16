@@ -7,14 +7,14 @@ use CodeIgniter\Model;
 class ProductModel extends Model
 {
     protected $table            = 'product';
-    protected $allowedFields = ['name', 'description', 'updated_at','categoryid','stateid'];
+    protected $allowedFields = ['name', 'description', 'price', 'updated_at','categoryid','stateid'];
     protected $primaryKey       = 'id';
 
     public function countProducts()
     {
         $product = $this
         ->table('product')
-        ->select('product.id, product.name, product.description, product.updated_at, product.created_at')
+        ->select('product.id, product.name, product.description, product.price, product.updated_at, product.created_at')
         ->selectCount('product.name', 'stock')
         ->where('product.stateid = 2')
         ->groupBy('product.name')
