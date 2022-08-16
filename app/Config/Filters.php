@@ -75,7 +75,9 @@ class Filters extends BaseConfig
                 'client/*',
                 'client',
                 'product',
-                'product/*'
+                'product/*',
+                'paymentmehodsale',
+                'paymentmehodsale/*'
             ]
         ]
     ];
