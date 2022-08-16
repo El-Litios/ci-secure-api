@@ -109,4 +109,12 @@ class Client extends BaseController
             ], ResponseInterface::HTTP_NOT_FOUND);
         }
     }
+
+    public function getSelectedInfo(){
+        $model = model('Client_Model');
+        return $this->getResponse([
+            'message' => 'Clients retrieved successfully',
+            'client' => $model->getClientsInfo()
+        ]);
+    }
 }
