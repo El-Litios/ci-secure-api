@@ -22,4 +22,13 @@ class Client_Model extends Model
 
         return $client;
     }
+
+    public function getClientsInfo()
+    {
+        $client = $this
+        ->table('client')
+        ->select('client.id, client.name')
+        ->findall();
+        return $client;
+    }
 }
