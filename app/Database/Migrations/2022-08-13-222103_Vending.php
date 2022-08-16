@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Product extends Migration
+class Vending extends Migration
 {
     public function up()
     {
@@ -15,45 +15,42 @@ class Product extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'name' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-                'null' => false
+            'clientid' => [
+                'type' => 'INT',
+                'constraint' => 1,
+                'unsigned' => true,
             ],
             'description' => [
                 'type' => 'VARCHAR',
                 'constraint' => '100',
                 'null' => false
             ],
-            'price' => [
+            'totalprice' => [
                 'type' => 'INT',
-                'constraint' => '5',
+                'constraint' => 6,
                 'null' => false
-            ],
-            'categoryid' => [
-                'type' => 'INT',
-                'constraint' => 1,
-                'unsigned' => true,
             ],
             'stateid' => [
                 'type' => 'INT',
                 'constraint' => 1,
                 'unsigned' => true,
             ],
-            'updated_at' => [
-                'type' => 'datetime',
-                'null' => true,
+            'paymentid' => [
+                'type' => 'INT',
+                'constraint' => 1,
+                'unsigned' => true,
             ],
             'created_at datetime default current_timestamp',
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('categoryid', 'categoryproduct', 'categoryid');
-        $this->forge->addForeignKey('stateid', 'stateproduct', 'stateid');
-        $this->forge->createTable('product');
+        $this->forge->addForeignKey('stateid', 'vendingstate', 'vendingstateid');
+        $this->forge->addForeignKey('clientid', 'client', 'id');
+        $this->forge->addForeignKey('paymentid', 'paymentmethodsale', 'paymentmethodid');
+        $this->forge->createTable('vending');
     }
 
     public function down()
     {
-        $this->forge->dropTable('product');
+        $this->forge->dropTable('vending');
     }
 }
