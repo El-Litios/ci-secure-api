@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 $routes->get('client', 'Client::index');
+$routes->get('client/client-info', 'Client::getSelectedInfo');
 $routes->post('newclient', 'Client::store');
 $routes->post('updateclient', 'Client::update');
 $routes->delete('deleteclient/(:num)', 'Client::destroy/$1');
@@ -42,6 +43,8 @@ $routes->get('product', 'Product::index');
 $routes->post('saveproducts', 'Product::store');
 
 $routes->get('category', 'CategoryProducts::index');
+
+$routes->get('paymentmethodsale', 'PaymentMethodSale::index');
 
 /*
  * --------------------------------------------------------------------
