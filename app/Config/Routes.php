@@ -46,6 +46,10 @@ $routes->get('category', 'CategoryProducts::index');
 
 $routes->get('paymentmethodsale', 'PaymentMethodSale::index');
 
+$routes->post('storevending', 'Vending::store');
+
+$routes->post('storedetailsvending', 'VendingDetail::store');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
