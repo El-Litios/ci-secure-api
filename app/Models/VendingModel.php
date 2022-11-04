@@ -7,6 +7,6 @@ use CodeIgniter\Model;
 class VendingModel extends Model
 {
     protected $table = 'vending';
-    protected $allowedFields = ['client_id', 'description', 'stateid', 'created_at'];
+    protected $allowedFields = ['clientid', 'description', 'stateid', 'created_at', 'paymentid', 'totalprice'];
     protected $primaryKey       = 'id';
 }
